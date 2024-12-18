@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="video.css">
+  <title>Omegle - Video Chat</title>
+</head>
+<body>
+  <header>
+    <h1 class="logo">Omegle</h1>
+    <h2 class="tagline">Talk to strangers!</h2>
+    <p class="online-count">46,000+ online now</p>
+  </header>
+
+  <div class="video-container">
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+  </div>
+
+  <div class="video-controls">
+    <button id="stopBtn" class="btn">Stop</button>
+    <input type="text" id="message-box" placeholder="Type a message...">
+    <button id="sendBtn" class="btn">Send</button>
+  </div>
+
+  <script>
+    // Placeholder for video functionality
+    document.getElementById('stopBtn').addEventListener('click', () => {
+      alert('Video chat stopped.');
+    });
+
+    document.getElementById('sendBtn').addEventListener('click', () => {
+      const message = document.getElementById('message-box').value;
+      alert(`Message sent: ${message}`);
+      document.getElementById('message-box').value = '';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="text.css">
+  <title>Omegle - Text Chat</title>
+</head>
+<body>
+  <header>
+    <h1>Omegle</h1>
+    <h2>Talk to strangers!</h2>
+  </header>
+
+  <div class="chat-container">
+    <p>You're now chatting with a random stranger. Say hi!</p>
+
+    <div id="chat-box"></div>
+
+    <div class="message-input-container">
+      <input type="text" id="message-input" placeholder="Hello there">
+      <button id="send-btn">Send</button>
+    </div>
+
+    <div class="chat-buttons">
+      <button id="stopBtn">Stop</button>
+      <button id="nextBtn">Next</button>
+    </div>
+
+    <p class="chat-footer">Stay safe and keep it clean!</p>
+  </div>
+
+  <script>
+    // Simple chat functionality
+    const chatBox = document.getElementById('chat-box');
+    const messageInput = document.getElementById('message-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    sendBtn.addEventListener('click', () => {
+      const message = messageInput.value.trim();
+      if (message) {
+        const messageElement = document.createElement('div');
+        messageElement.textContent = `You: ${message}`;
+        chatBox.appendChild(messageElement);
+        messageInput.value = '';
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      chatBox.innerHTML = '';
+      messageInput.value = '';
+      alert('Skipping to the next chat partner...');
+    });
+
+    document.getElementById('stopBtn').addEventListener('click', () => {
+      alert('Chat ended.');
+    });
+  </script>
+</body>
+</html>
