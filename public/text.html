@@ -1,61 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="text.css">
-  <title>Omegle - Text Chat</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Text Chat - Omegle Clone</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-  <header>
-    <h1>Omegle</h1>
-    <h2>Talk to strangers!</h2>
-  </header>
-
-  <div class="chat-container">
-    <p>You're now chatting with a random stranger. Say hi!</p>
-
-    <div id="chat-box"></div>
-
-    <div class="message-input-container">
-      <input type="text" id="message-input" placeholder="Hello there">
-      <button id="send-btn">Send</button>
-    </div>
-
-    <div class="chat-buttons">
-      <button id="stopBtn">Stop</button>
-      <button id="nextBtn">Next</button>
-    </div>
-
-    <p class="chat-footer">Stay safe and keep it clean!</p>
+  <div class="omegle-header">
+    <img src="omegle-logo.jpg" alt="Omegle Logo" />
+    <h1>Talk to strangers!</h1>
   </div>
 
-  <script>
-    // Simple chat functionality
-    const chatBox = document.getElementById('chat-box');
-    const messageInput = document.getElementById('message-input');
-    const sendBtn = document.getElementById('send-btn');
+  <!-- CAPTCHA -->
+  <div id="captchaContainer">
+    <h2>Verify to Start</h2>
+    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+    <button onclick="verifyCaptcha()">Start Text Chat</button>
+  </div>
 
-    sendBtn.addEventListener('click', () => {
-      const message = messageInput.value.trim();
-      if (message) {
-        const messageElement = document.createElement('div');
-        messageElement.textContent = `You: ${message}`;
-        chatBox.appendChild(messageElement);
-        messageInput.value = '';
-        chatBox.scrollTop = chatBox.scrollHeight;
-      }
-    });
+  <!-- Text Chat UI -->
+  <div id="chatUI" style="display: none;">
+    <div class="container">
+      <div class="main-box">
+        <div id="chat" class="chat-window">Waiting for partner...</div>
+        <div class="input-area">
+          <input id="input" placeholder="Type a message..." disabled />
+          <button id="sendBtn" disabled>Send</button>
+        </div>
+        <div class="bottom-buttons">
+          <button id="nextBtn" disabled>NEXT</button>
+          <button id="reportBtn">REPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      chatBox.innerHTML = '';
-      messageInput.value = '';
-      alert('Skipping to the next chat partner...');
-    });
-
-    document.getElementById('stopBtn').addEventListener('click', () => {
-      alert('Chat ended.');
-    });
-  </script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script-text.js"></script>
 </body>
 </html>

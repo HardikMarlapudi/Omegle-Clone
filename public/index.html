@@ -1,68 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Omegle - Talk to Strangers!</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omegle Clone</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <h1 class="logo">Omegle</h1>
-      <h2 class="tagline">Talk to strangers!</h2>
-    </div>
-  </header>
+  <div class="omegle-header">
+    <img src="omegle-logo.jpg" alt="Omegle Logo" />
+    <h1>Talk to strangers!</h1>
+  </div>
 
-  <main class="content">
-    <section class="info-box">
-      <p class="mobile-notice">
-        <strong>You don’t need an app to use Omegle on your phone or tablet! The website works great on mobile.</strong>
-      </p>
-      
-      <div class="announcement">
-        <img src="public-service.jpg" alt="Public Service Announcement" class="announcement-image">
-      </div>
+  <div class="container">
+    <div class="main-box">
+      <p><strong>You don’t need an app to use Omegle on your phone or tablet!</strong> This website works great on mobile.</p>
 
-      <p class="description">
-        Omegle (<em>oh-meg-ull</em>) is a great way to meet new friends, even while practicing social distancing. When you use Omegle, we pick someone else at random and let you talk one-on-one. To help you stay safe, chats are anonymous unless you tell someone who you are (not suggested!), and you can stop a chat at any time. Predators have been known to use Omegle, so please be careful.
-      </p>
+      <img src="psa-flag.png" alt="Public Service Announcement" class="psa-image" />
 
-      <p class="interests-info">
-        If you prefer, you can add your interests, and Omegle will look for someone who’s into some of the same things as you instead of someone completely random.
-      </p>
+      <p><strong>Meet strangers with your interests!</strong> Omegle is a great way to meet new friends. When you use Omegle, we pick someone else at random and let you talk one-on-one.</p>
+
+      <p>To help you stay safe, chats are anonymous unless you tell someone who you are (not recommended), and you can stop a chat at any time.</p>
 
       <div class="warning-box">
-        <strong>Video is monitored. Keep it clean!</strong><br>
-        18+ | <a href="#">Adult</a> | <a href="#">Unmoderated Section</a>
+        <p><strong>Video is monitored. Keep it clean ⚠️</strong></p>
+        <small>18+: <a href="#">Adult</a> | <a href="#">Unmoderated Section</a></small>
       </div>
 
-      <div class="chat-options">
-        <input type="text" placeholder="Add your interests (optional)">
+      <form id="startForm">
+        <label for="interests">What do you wanna talk about?</label>
+        <input type="text" id="interests" placeholder="Add your interests (optional)" />
+
         <div class="buttons">
-          <button id="textButton" class="text-button">Text</button>
-          <span class="or">or</span>
-          <button id="videoButton" class="video-button">Video</button>
+          <button type="button" onclick="location.href='text.html'">Text</button>
+          <button type="button" onclick="location.href='video.html'">Video</button>
         </div>
-      </div>
 
-      <p class="college-note">College student chat</p>
-    </section>
-  </main>
+        <label style="font-size: 13px; margin-top: 10px;">
+          <input type="checkbox" checked /> College student chat
+        </label>
+      </form>
+    </div>
+  </div>
 
   <footer>
-    <p>By using Omegle, you agree to the <a href="#">terms at the bottom</a>. You must be 18+ or 13+ with parental permission.</p>
+    <center><p>By using Omegle, you accept the terms at the bottom. You must be 18+ or 13+ with parental permission.</p></center>
   </footer>
-
-  <script>
-    // JavaScript to handle button clicks
-    document.getElementById('textButton').addEventListener('click', () => {
-      window.location.href = 'text.html';
-    });
-
-    document.getElementById('videoButton').addEventListener('click', () => {
-      window.location.href = 'video.html';
-    });
-  </script>
 </body>
 </html>

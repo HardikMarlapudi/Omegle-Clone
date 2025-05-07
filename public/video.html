@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="video.css">
-  <title>Omegle - Video Chat</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Chat - Omegle Clone</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-  <header>
-    <h1 class="logo">Omegle</h1>
-    <h2 class="tagline">Talk to strangers!</h2>
-    <p class="online-count">46,000+ online now</p>
-  </header>
-
-  <div class="video-container">
-    <video id="localVideo" autoplay muted></video>
-    <video id="remoteVideo" autoplay></video>
+  <div class="omegle-header">
+    <img src="omegle-logo.jpg" alt="Omegle Logo" />
+    <h1>Talk to strangers!</h1>
   </div>
 
-  <div class="video-controls">
-    <button id="stopBtn" class="btn">Stop</button>
-    <input type="text" id="message-box" placeholder="Type a message...">
-    <button id="sendBtn" class="btn">Send</button>
+  <!-- CAPTCHA Screen -->
+  <div id="captchaContainer">
+    <h2>Verify to Start</h2>
+    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+    <button onclick="verifyCaptcha()">Start Chat</button>
   </div>
 
-  <script>
-    // Placeholder for video functionality
-    document.getElementById('stopBtn').addEventListener('click', () => {
-      alert('Video chat stopped.');
-    });
+  <!-- Chat UI -->
+  <div id="chatUI" style="display:none;">
+    <div class="main-content">
+      <!-- Video Section -->
+      <div class="video-column">
+        <div class="video-box">
+          <video id="remoteVideo" autoplay playsinline></video>
+          <div class="label">Stranger</div>
+        </div>
+        <div class="video-box">
+          <video id="localVideo" autoplay muted playsinline></video>
+          <div class="label">You</div>
+        </div>
+      </div>
 
-    document.getElementById('sendBtn').addEventListener('click', () => {
-      const message = document.getElementById('message-box').value;
-      alert(`Message sent: ${message}`);
-      document.getElementById('message-box').value = '';
-    });
-  </script>
+      <!-- Chat Section -->
+      <div class="chat-column">
+        <div id="chat" class="chat-window">Waiting for partner...</div>
+        <div class="input-area">
+          <input id="input" placeholder="Type your message..." disabled />
+          <button id="sendBtn" disabled>Send</button>
+        </div>
+        <div class="bottom-buttons">
+          <button id="nextBtn" disabled>NEXT</button>
+          <button id="reportBtn">REPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
