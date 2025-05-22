@@ -3,48 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Omegle Clone</title>
+  <title>Talk to strangers!</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mootools@1.6.0/mootools.min.js"></script>
 </head>
 <body>
-  <div class="omegle-header">
-    <img src="omegle-logo.jpg" alt="Omegle Logo" />
-    <h1>Talk to strangers!</h1>
-  </div>
+  <div id="wrapper">
+    <h1>Omegle</h1>
+    <p>You're now chatting with a random stranger. Say hi!</p>
 
-  <div class="container">
-    <div class="main-box">
-      <p><strong>You don’t need an app to use Omegle on your phone or tablet!</strong> This website works great on mobile.</p>
+    <div id="chat-box"></div>
 
-      <img src="psa-flag.png" alt="Public Service Announcement" class="psa-image" />
-
-      <p><strong>Meet strangers with your interests!</strong> Omegle is a great way to meet new friends. When you use Omegle, we pick someone else at random and let you talk one-on-one.</p>
-
-      <p>To help you stay safe, chats are anonymous unless you tell someone who you are (not recommended), and you can stop a chat at any time.</p>
-
-      <div class="warning-box">
-        <p><strong>Video is monitored. Keep it clean ⚠️</strong></p>
-        <small>18+: <a href="#">Adult</a> | <a href="#">Unmoderated Section</a></small>
-      </div>
-
-      <form id="startForm">
-        <label for="interests">What do you wanna talk about?</label>
-        <input type="text" id="interests" placeholder="Add your interests (optional)" />
-
-        <div class="buttons">
-          <button type="button" onclick="location.href='text.html'">Text</button>
-          <button type="button" onclick="location.href='video.html'">Video</button>
-        </div>
-
-        <label style="font-size: 13px; margin-top: 10px;">
-          <input type="checkbox" checked /> College student chat
-        </label>
-      </form>
+    <div id="input-container">
+      <input type="text" id="message" placeholder="Type here..." />
+      <button onclick="sendMessage()">Send</button>
     </div>
+
+    <div id="video-container">
+      <video id="localVideo" autoplay muted></video>
+      <video id="remoteVideo" autoplay></video>
+    </div>
+
+    <button onclick="startCall()">Start Video</button>
   </div>
 
-  <footer>
-    <center><p>By using Omegle, you accept the terms at the bottom. You must be 18+ or 13+ with parental permission.</p></center>
-  </footer>
+  <script src="main.js"></script>
 </body>
 </html>

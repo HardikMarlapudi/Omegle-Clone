@@ -1,0 +1,28 @@
+{
+  "name": "omegle-complete",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1",
+    "ws": "^8.18.2"
+  },
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HardikMarlapudi/Omegle-Clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HardikMarlapudi/Omegle-Clone/issues"
+  },
+  "homepage": "https://github.com/HardikMarlapudi/Omegle-Clone#readme"
+}
